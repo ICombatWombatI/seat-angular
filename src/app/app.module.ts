@@ -28,7 +28,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 //-------------------------Stadiums--------------------------//
-import { CreateStadiumComponent } from './stadiums/create-stadium/create-stadium.component';
+import { UpdateStadiumComponent } from './stadiums/update-stadium/update-stadium.component';
 import { StadiumListComponent } from './stadiums/stadium-list/studium-list.component';
 //-----------------------NewsComponent-----------------------//
 import { NewsComponent } from './news/news.component';
@@ -84,7 +84,7 @@ const appRoutes: Routes = [
   { path: 'stadiums', component: StadiumListComponent, canActivate: [AuthGuard] },
   { path: 'products', component: ProductComponent, canActivate: [AuthGuard] },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
-  { path: 'over-view', component: CreateStadiumComponent, canActivate: [AuthGuard] },
+  { path: 'over-view', component: UpdateStadiumComponent, canActivate: [AuthGuard] },
   { path: 'news', component: NewsComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: 'auth', pathMatch: 'prefix' },
   { path: '**', redirectTo: 'auth', pathMatch: 'prefix' }
@@ -112,7 +112,7 @@ enableProdMode();
     AddNewsWindow,
     UpdateNewsWindow,
     ProductComponent,
-    CreateStadiumComponent,
+    UpdateStadiumComponent,
     ProductControllerComponent,
     ProductCreationComponent,
     OrdersComponent,

@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 import { AddNewsWindow } from '../shared/ModalWindows/add-news/AddNewsWindow';
 import { UpdateNewsWindow } from '../shared/ModalWindows/update-news/UpdateNewsWindow'
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { CNews } from '../shared/classes/news';
 import { NewsService } from '../service/news/news.service';

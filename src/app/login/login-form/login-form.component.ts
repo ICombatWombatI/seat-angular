@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import  {MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 import { ModalLoginWindow } from '../../shared/ModalWindows/login/ModalLoginWindow';
 import { AuthService } from '../../service/auth/auth.service';
 

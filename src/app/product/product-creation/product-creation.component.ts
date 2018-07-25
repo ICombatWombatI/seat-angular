@@ -3,10 +3,12 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
 
 import { ModalWindow } from '../../shared/ModalWindows/modal-window/ModalWindow';
-import { CCategories } from '../../shared/classes/categories';
-import { CProduct } from '../../shared/classes/product';
+
 import { CategoriesService } from '../../service/category/categories.service';
 import { ProductService } from '../../service/product/product.service';
+
+import { CCategories } from '../../shared/classes/categories';
+import { CProduct } from '../../shared/classes/product';
 
 export interface category {
   category_id: string;

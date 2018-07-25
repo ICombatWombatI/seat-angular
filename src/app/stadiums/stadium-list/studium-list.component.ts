@@ -1,8 +1,9 @@
 import { Component,Input, OnInit, Inject, EventEmitter, Output } from '@angular/core';
-import { ModalWindow } from '../../shared/ModalWindows/modal-window/ModalWindow';
-import { StadiumWindow } from '../../shared/ModalWindows/stadium-window/StadiumWindow';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
+
+import { ModalWindow } from '../../shared/ModalWindows/modal-window/ModalWindow';
+import { StadiumWindow } from '../../shared/ModalWindows/stadium-window/StadiumWindow';
 
 import { CStadium } from '../../shared/classes/stadium';
 import { StadiumService } from '../../service/stadium/stadium.service';
@@ -19,6 +20,7 @@ export class StadiumListComponent implements OnInit {
                private router: Router,
                public StadiumService:StadiumService
   ) { }
+
   data: number = 0;
   stadiums: CStadium[]= [];
   numb: any;
@@ -99,8 +101,8 @@ export class StadiumListComponent implements OnInit {
 
       }
     });
-    
   }
+
   overView(stadium_id:any) {
     localStorage.setItem("_id", stadium_id);
     this.router.navigate(['/over-view']);

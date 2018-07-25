@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalWindow } from '../shared/ModalWindows/modal-window/ModalWindow';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
+
+import { ModalWindow } from '../shared/ModalWindows/modal-window/ModalWindow';
 
 @Component({
   selector: 'app-product',
@@ -19,9 +20,11 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     
   }
+
   observeCon() {
     this.observable = true;
   }
+  
   observeCre() {
     this.observable = false;
   }

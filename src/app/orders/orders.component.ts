@@ -1,11 +1,14 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { OrderWindow } from '../shared/ModalWindows/orders-window/OrderWindow';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 import { OrdersService } from '../service/order/orders.service';
-import { COrder } from '../shared/classes/order';
+import { StadiumService } from '../service/stadium/stadium.service';
+
+import { OrderWindow } from '../shared/ModalWindows/orders-window/OrderWindow';
 
 import { CStadium } from '../shared/classes/stadium';
-import { StadiumService } from '../service/stadium/stadium.service';
+import { COrder } from '../shared/classes/order';
+
 
 @Component({
   selector: 'app-orders',
@@ -20,28 +23,8 @@ export class OrdersComponent implements OnInit {
   ) { }
 
   ngAfterContentChecked() {
-    if (this.pageIndex > 1) {
-      this.priviuse = true;
-    } else {
-      this.priviuse = false;
-    }
 
-    if (this.count_orders > (this.pageIndex - 1) * 10) {
-      this.next = true;
-    } else {
-      this.next = false;
-    }
-
-    if (this.numb && this.count_orders == 0) {
-
-      this.count_orders = this.numb.orders_count[0].orders_count;
-      if (this.count_orders > 10) {
-        this.next = true;
-      }
-      else {
-        this.next = false;
-      }
-    }
+    this.PageLogic();
 
     if (this.orders === null) {
       this.data_is_came = 3;
@@ -152,4 +135,28 @@ export class OrdersComponent implements OnInit {
     });
   }
 
+  PageLogic() {
+    if (this.pageIndex > 1) {
+      this.priviuse = true;
+    } else {
+      this.priviuse = false;
+    }
+
+    if (this.count_orders > (this.pageIndex - 1) * 10) {
+      this.next = true;
+    } else {
+      this.next = false;
+    }
+
+    if (this.numb && this.count_orders == 0) {
+
+      this.count_orders = this.numb.orders_count[0].orders_count;
+      if (this.count_orders > 10) {
+        this.next = true;
+      }
+      else {
+        this.next = false;
+      }
+    }
+  }
 }

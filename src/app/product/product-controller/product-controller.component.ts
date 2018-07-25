@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { UpdateProductWindow } from '../../shared/ModalWindows/update-product/UpdateProductWindow';
-import { ModalWindow } from '../../shared/ModalWindows/modal-window/ModalWindow';
+
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
 
 import { CCategories } from '../../shared/classes/categories';
 import { CProduct } from '../../shared/classes/product';
 
+import { UpdateProductWindow } from '../../shared/ModalWindows/update-product/UpdateProductWindow';
+import { ModalWindow } from '../../shared/ModalWindows/modal-window/ModalWindow';
+
 import { CategoriesService } from '../../service/category/categories.service';
 import { ProductService } from '../../service/product/product.service';
-
 
 @Component({
   selector: 'app-product-controller',
