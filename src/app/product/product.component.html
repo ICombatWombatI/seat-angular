@@ -1,0 +1,21 @@
+<div class="flex-form">
+    <!--Heder buttons element -->
+    <div class="header-buttons flex-element">
+        <button mat-raised-button (click)="observeCre()" class="buttons">
+            <h4>Add product</h4>
+        </button>
+
+        <button mat-raised-button (click)="observeCon()" class="buttons">
+            <h4>Product list</h4>
+        </button>
+    </div>
+
+    <mat-card class="header-line flex-element"> </mat-card>
+
+    <!--Product control element -->
+    <div class="flex-element">
+        <app-product-creation class="mat-cards" *ngIf="!observable"></app-product-creation>
+
+        <app-product-controller class="mat-cards" *ngIf="observable"></app-product-controller>
+    </div>
+</div>

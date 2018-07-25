@@ -1,0 +1,79 @@
+.work-spac {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+ 
+}
+
+.long-bar {
+    background-color: #ff6f00; width:70%; padding:0.1%; 
+    box-shadow: 0 6px 5px -1px rgba(0,0,0,.3),
+                0 10px 15px 0 rgba(0,0,0,.44),
+                0 3px 30px 0 rgba(0,0,0,.12)!important;
+            }
+
+
+.element {
+    margin:2%;
+    width: 50%;
+    padding-top: 0.5%;
+}
+
+.stadium {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto
+}
+
+.flex-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;margin: auto;
+}
+
+.flex-form-loading {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 70%;
+    margin-top: 120px;
+}
+
+.flex-form-element {
+
+    align-self: center;
+}
+
+.header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   width: 70%;
+}
+
+img {
+    width: 55%;
+    height: 55%;
+}
+
+h2 {
+    font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+    height:60px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.full-wigth {
+    width: 100%;
+}
+
+hr {
+    margin: 5px;
+    width: 82%;
+}

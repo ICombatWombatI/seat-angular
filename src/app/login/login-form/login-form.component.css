@@ -1,0 +1,28 @@
+.flex-container {
+    display:flex;
+    height: 270px;
+    flex-direction: column; 
+  }
+
+.element:first-child {
+    margin: auto
+ }
+
+.input {
+    display:inline-grid;
+    width:55%;
+    margin: auto;
+}
+.confirm {
+   width:100%;
+   padding: 0;
+   margin: 0;
+   background-color: #ff6f00;
+}
+
+.login-toolbar {
+    margin: 0%;
+    padding: 0%;
+    height:6px;
+    background-color: black;
+}

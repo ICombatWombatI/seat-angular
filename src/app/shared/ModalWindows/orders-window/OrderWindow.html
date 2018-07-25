@@ -1,0 +1,30 @@
+<br>
+<h4> Client name </h4> 
+   {{order[0].client_name}}
+<hr>
+  <h4>Client phone</h4> {{order[0].client_phone}}
+  <hr>
+  <h4>Delivery</h4> {{order[0].delivery}}
+  <hr>
+  <h4>Order delivery section</h4> {{order[0].order_delivery_section}}
+ <hr>
+ <h4>Order delivery row </h4> {{order[0].order_delivery_row}}
+ <hr>
+ <h4>Order delivery seat</h4>{{order[0].order_delivery_seat}}
+ <hr>
+ <h4>Created</h4> {{order[0].created}}
+ <hr>
+ <h4>Order readiness time</h4> {{order[0].order_readiness_time}}
+ <hr>
+ <h4>Order status</h4>  {{order[0].order_status}}
+ <hr>
+ <h2>Total price</h2> {{order[0].total_price}}
+
+<div style="  display: flex;
+flex-direction: column;
+justify-content: center;">
+
+  <div mat-dialog-actions>
+    <button style="margin:auto" mat-button (click)="onNoClick()" >Close</button>
+  </div>
+</div>

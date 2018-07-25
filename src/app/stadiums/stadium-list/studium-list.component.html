@@ -1,0 +1,56 @@
+<div class="work-spac">
+
+  <!--flex-elemet_header-->
+  <div class="header">
+    <div>
+      <button mat-icon-button [disabled]='priviuse' (click)="priviosPage()">
+        <mat-icon> arrow_back </mat-icon>
+      </button>
+      Page: {{pageIndex}}
+      <button mat-icon-button [disabled]='next' (click)="nextPage()">
+        <mat-icon> arrow_forward </mat-icon>
+      </button>
+    </div>
+
+    <button mat-button (click)="createStadium()">
+      <h4 style="margin-top: 3px;margin-bottom: 3px;">Create</h4>
+    </button>
+  </div>
+
+ <!--flex-elemet_header-long-bar-->
+  <mat-card class="long-bar"> </mat-card>
+
+  <!--Loading bar -->
+  <mat-card class="element" *ngIf="data === 0">
+    <mat-progress-bar color="warn" mode="indeterminate"> </mat-progress-bar>
+  </mat-card>
+
+  <!--flex-elemet_list-->
+  <mat-card class="element" *ngFor="let stud of stadiums; let i = index">
+
+    <div class="stadium">
+      <!--flex-elemet_1-->
+      <img style="margin:auto" [src]="stud.stadium_featured_url">
+      <!--flex-elemet_2-->
+      <div class="flex-form">
+        <!--flex-elemet_2_1-->
+        <h2 class="flex-form-element">
+          <div style="margin:auto">{{stud.stadium_name}}</div>
+        </h2>
+        <!--flex-elemet_2_2-->
+        <div class="flex-form-element">
+          <button mat-button (click)="overView(stud.stadium_id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-button (click)="deleteStadium(i, stud.stadium_id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--stadium name-->
+    <div> {{name}}</div>
+   
+  </mat-card>
+
+</div>

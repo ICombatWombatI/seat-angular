@@ -1,0 +1,23 @@
+<div class="work-spac">
+  <!--flex-elemet_header-->
+  <button (click)="addNews()" style="background-color: #ff6f00;" mat-fab> <mat-icon> add </mat-icon> </button>
+
+  <!--Loading bar -->
+  <mat-card class="element" *ngIf="data === 0">
+    <mat-progress-bar color="warn" mode="indeterminate"> </mat-progress-bar>
+  </mat-card>
+
+  <!--flex-elemet_list-->
+  <div class="element">
+     <!--flex-list-->
+    <div style="margin: 2%;" *ngFor="let new of news; let i = index" >
+      <!--flex-list-->
+      <mat-card (click)="openNews(new.news_id);" class="news-card" [ngStyle]="{'background-image': 'url(' + new.news_image + ')', 'background-size': 'cover'  }">
+      <div class="news-title">
+        <div style="margin:2%">{{new.news_title}}</div>
+      </div>
+    </mat-card>
+    </div>
+  </div>
+
+</div>

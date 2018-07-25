@@ -1,0 +1,26 @@
+<div class="flex-container">
+
+<!--Kiosk name controll section-->
+  <div class="flex-section">
+    <mat-form-field>
+      <input class="" matInput type="text" placeholder="Kiosk name" name="kiosk_name" maxlength="20" [(ngModel)]="kiosk_name">
+    </mat-form-field>
+  </div>
+  <div style="width:100%;">
+    <hr>
+  </div>
+  <!--Product controll section-->
+  <div class="flex-section">
+    <!--All product list-->
+    <mat-select placeholder="Select productes" [(formControl)]="selecteProducts" style="width:250px; margin:1%;" multiple>
+      <mat-option *ngFor="let product of products" [value]="product.product_id" >{{product.product_name}}</mat-option>
+    </mat-select>
+  </div>
+
+  <!--Apply/Cansel section-->
+  <div mat-dialog-actions class="flex-section">
+    <button style="margin:auto" mat-button (click)="updateProdList()" >Apply</button>
+    <button style="margin:auto" mat-button (click)="onNoClick()" >Сlose</button>
+  </div>
+
+</div>

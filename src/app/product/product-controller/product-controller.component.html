@@ -1,0 +1,52 @@
+<mat-card class="full-wigth">
+  <!--Add food type-->
+  <div class="element">
+    <div class="flex-element">
+     <!-- <mat-form-field>
+        <mat-select placeholder="Product Type" disabled>
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category.category_id">{{category.category_id}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input class="" matInput type="text" placeholder="Product name" name="product_name" maxlength="20" [(ngModel)]="product_name"
+          disabled>
+      </mat-form-field>-->
+    </div>
+  </div>
+
+  <div class="element">
+    <mat-card class="mat-conteiner">
+      <!--list-button-control-->
+      <div class="flex-buttons">
+        <button mat-icon-button [disabled]='!priviuse' (click)="priviosPage()">
+          <mat-icon> arrow_back </mat-icon>
+        </button>
+          <div style="align-self: center;">Page: {{pageIndex}}</div> 
+        <button mat-icon-button [disabled]='!next' (click)="nextPage()">
+          <mat-icon> arrow_forward </mat-icon>
+        </button>
+      </div>
+      <!--Loading bar -->
+      <mat-progress-bar style="margin:2%;" *ngIf="data === 0" color="warn" mode="indeterminate"> </mat-progress-bar>
+
+      <!--product-list-->
+      <div *ngFor="let product of products; let i = index">
+        <div class="flex-product" >
+          <h4>{{product.product_name}}</h4>
+
+          <div class="control-buttons">
+            <button mat-button (click)="owerView(product.product_id, product.product_name, product.product_price, product.category_id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-button (click)="deleteProduct(i, product.product_id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>

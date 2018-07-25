@@ -1,0 +1,28 @@
+    <div class="flex-container">
+        <div class=" element">
+            <!-- Products button -->
+            <button  mat-button routerLink="/products"  class="button-insest">
+              Products<mat-divider> </mat-divider>
+            </button>
+            <!-- Stadiums button -->
+            <button mat-button  routerLink="/stadiums"  class="button-insest">
+              Stadiums  <mat-divider> </mat-divider>
+            </button>
+            <!-- Orders button -->
+            <button  mat-button routerLink="/orders" class="button-insest">
+              Orders <mat-divider> </mat-divider>
+            </button>
+            <!-- News button -->
+            <button  mat-button routerLink="/news" class="button-insest">
+                News <mat-divider> </mat-divider>
+              </button>
+        </div>
+
+        <div style="position: absolute; right: 10px; top: 10px;">
+            <!-- Log out button -->
+            <a (click)="onSubmit()" mat-button routerLink="/auth" class="log-out">
+               Log Out
+            </a>
+        </div>
+    </div>
+

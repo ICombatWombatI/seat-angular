@@ -1,0 +1,44 @@
+<mat-card class="full-wigth">
+    <!--Add food type-->
+    <div class="element">
+        <mat-expansion-panel style="width:70%;">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Add product type
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="add-type">
+                <button (click)="createCategory()" mat-raised-button class="buttons add-button">
+                    <h4>Add</h4>
+                </button>
+
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Product type name" name="category_name" maxlength="20" [(ngModel)]="category_name">
+                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+    </div>
+
+    <!--Add food-->
+    <div class="element">
+        <div class="add-food">
+            <mat-form-field>
+                <mat-select placeholder="Product Type" name="category" [(ngModel)]="category_id">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let category of categories" [value]="category.category_id"> {{category.category_name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Product name" name="product_name" maxlength="20" [(ngModel)]="product_name">
+            </mat-form-field>
+
+            <mat-form-field style="width:80px">
+                <input matInput type="number" placeholder="Price" name="product_price" maxlength="20" [(ngModel)]="product_price">
+            </mat-form-field>
+
+            <button class="add-button buttons" (click)="createProduct()" mat-raised-button>
+                <h4> Add </h4>
+            </button>
+        </div>
+    </div>
+</mat-card>

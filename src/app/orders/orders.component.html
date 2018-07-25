@@ -1,0 +1,76 @@
+<div class="flex-form">
+  <!--Heder control elements -->
+  <div class="header-selectors flex-element">
+
+    <mat-form-field class="drop-down">
+      <mat-select placeholder="Stadium">
+        <mat-option (click)="clearFilter()">None</mat-option>
+        <mat-option *ngFor="let stadium of stadiums" (click)="getOrders(stadium.stadium_id)" [value]="stadium.stadium_id">{{stadium.stadium_name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  <!--  <mat-form-field>
+      <mat-select placeholder="Stand" disabled>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let stand of stands" [value]="stand.title">{{stand.title}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Kiosk" disabled>
+        <mat-option (click)="clearFilter()">None</mat-option>
+        <mat-option *ngFor="let kiosk of kiosks" [value]="kiosk.title">{{kiosk.title}}</mat-option>
+      </mat-select>
+    </mat-form-field>-->
+
+  </div>
+
+  <mat-card class="header-line flex-element">
+
+  </mat-card>
+
+  <!-- Orders list -->
+  <div class="flex-element mat-card-conteiner">
+    <mat-card class="mat-cards">
+
+      <!--Loading bar -->
+      <mat-progress-bar *ngIf="data_is_came === 0" color="warn" mode="indeterminate"> </mat-progress-bar>
+
+      <!-- No data -->
+      <div class="element" *ngIf="data_is_came === 3">
+        <div style="text-align:center; font-size:20px; ">No orders in this stadium</div>
+        <hr>
+      </div>
+
+      <!-- Select stadium -->
+      <div class="element" *ngIf="data_is_came === 4">
+        <div  style="text-align:center; font-size:20px; ">Select stadium</div>
+        <hr>
+      </div>
+
+      <!-- Page buttons -->
+      <div class="flex-buttons" *ngIf="data_is_came === 1">
+        <button mat-icon-button [disabled]='!priviuse' (click)="priviosPage()">
+          <mat-icon> arrow_back </mat-icon>
+        </button>
+        <div style="align-self: center;">Page: {{pageIndex}}</div> 
+        <button mat-icon-button [disabled]='!next' (click)="nextPage()">
+          <mat-icon> arrow_forward </mat-icon>
+        </button>
+      </div>
+
+      <!--product-list-->
+      <div *ngFor="let order of orders; let i = index">
+        <div class="flex-product">
+          <h4>{{order.order_id}}, {{order.order_status}}</h4>
+
+          <div class="control-buttons">
+            <button  mat-icon-button style=" display:flex; flex-direction: column; justify-content:center;" (click)="showDetails(order.order_id)">
+              <mat-icon style="font-size:38px; margin:auto;  justify-self: center;
+              align-self: center">list</mat-icon>
+            </button>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </mat-card>
+  </div>
+</div>

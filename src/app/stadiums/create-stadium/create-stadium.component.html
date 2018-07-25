@@ -1,0 +1,158 @@
+<div class="flex-form">
+  <div style="margin:auto;">
+    <h1>{{stadium_name}}</h1>
+  </div>
+  <mat-card style="background-color: #ff6f00; padding:2px; 
+      box-shadow: 0 6px 5px -1px rgba(0,0,0,.3),
+                  0 10px 15px 0 rgba(0,0,0,.44),
+                  0 3px 30px 0 rgba(0,0,0,.12);">
+  </mat-card>
+
+  <div class="flex-element">
+    <!--Loading bar -->
+    <mat-card class="full-wigth" *ngIf="data_is_came === 0">
+      <mat-progress-bar color="warn" mode="indeterminate"> </mat-progress-bar>
+    </mat-card>
+
+
+    <mat-card class="full-wigth" *ngIf="data_is_came === 1">
+      <h3>Name of stadium</h3>
+      <div class="title-form">
+
+        <mat-form-field>
+          <input matInput placeholder="Stadium name" name="stadium_name" maxlength="40" [(ngModel)]="new_stadium_name" required>
+        </mat-form-field>
+
+      </div>
+      <hr>
+      <br>
+      <!-- Controll panel -->
+      <div class="img-form" *ngIf="data_is_came === 1">
+        <div class="image-conteainer" *ngIf="img_selected">
+          <img class="img-form-element title-img" [src]="stadium_future_url">
+        </div>
+        <br>
+        <button *ngIf="img_selected" (click)="deleteImg()" style="margin:auto; background-color:#ef5350;" mat-raised-button>Delete</button>
+
+        <mat-card *ngIf="!img_selected" class="new-img">
+          <div style="margin: auto; padding:10px;"> {{title_img_name}}</div>
+          <input type="file" (change)="uploadImg($event)" #titleImg style="display:none;">
+          <button style="margin: auto; background-color:#ff6f00;" (click)="titleImg.click()" mat-raised-button>Select</button>
+        </mat-card>
+      </div>
+      <br>
+      <!-- Update stadium batton -->
+      <div class="U-C-flex-element" *ngIf="title_update">
+        <button mat-raised-button (click)="updateChanges()" style="background-color:#ff6f00;"> Update </button>
+
+        <button (click)="cancelChanges()" style="background-color:#ff6f00;" mat-raised-button> Cancel </button>
+      </div>
+
+    </mat-card>
+  </div>
+
+  <!-- Vendor filds -->
+  <div class="flex-element" *ngIf="data_is_came === 1">
+    <mat-card class="full-wigth">
+      <h3>Vendor </h3>
+
+      <!-- If vendor is exist -->
+      <div class="vender-form" *ngIf="vendor_is_exist">
+         Vendor name: {{vendor_name}}
+        <hr style="width:100%"> Vendor email: {{vendor_email}}
+        <button mat-raised-button (click)="deleteVendor()" style="margin: auto; background-color: #ff6f00;">
+          <mat-icon> delete </mat-icon>
+        </button>
+      </div>
+
+      <!-- If vendor is exist'nt -->
+      <div class="vender-form" *ngIf="!vendor_is_exist">
+        <div class="vender-form-element">
+          <!-- Vendor name -->
+          <mat-form-field style="width :40%">
+            <input matInput placeholder="Vender name" name="vendor_name" maxlength="20" [(ngModel)]="vendor_name" required>
+          </mat-form-field>
+          <!-- Vendor email -->
+          <mat-form-field style="width :40%">
+            <input matInput placeholder="Vender name" name="vendor_email" maxlength="20" [(ngModel)]="vendor_email" required>
+          </mat-form-field>
+        </div>
+        <!-- Vendor password -->
+        <div class="vender-form-element">
+          <mat-form-field style="width :20%">
+            <input matInput type="password" placeholder="Password" name="vendor_password" maxlength="20" [(ngModel)]="vendor_password"
+              required>
+          </mat-form-field>
+        </div>
+        <!-- Create vendor fild -->
+        <div style=" margin:auto;">
+          <button mat-raised-button style=" margin:auto; background-color:#ff6f00;" (click)="createVendor()">
+            <mat-icon>check_circle</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+
+  <!-- Stand form -->
+  <div class="flex-element" *ngIf="data_is_came === 1">
+    <!-- Main stand card -->
+    <mat-card class="full-wigth" style="  height: 400px;">
+
+      <!--Create stand form-->
+      <div class="create-form" style="margin:auto">
+        <!--Create stand button-->
+        <button mat-raised-button class="buttons" (click)="createStand();" style="width:50%;margin:auto"> Add </button>
+        <mat-form-field>
+          <!--Create stand fild-->
+          <input matInput type="text" placeholder="Stand title" name="newStandTitle" maxlength="20" [(ngModel)]="newStandTitle">
+        </mat-form-field>
+      </div>
+
+      <!-- Tab-group -->
+      <mat-tab-group>
+        <!-- Stands list -->
+        <div *ngFor="let stand of stands; let stand_index = index">
+          <!-- Tab in tab-group + stand name -->
+          <mat-tab label={{stand.stand_name}}>
+            <div class="zone-form">
+              <div class="kiosk-list">
+                <!-- Add Kiosk form -->
+                <div class="create-kiosk">
+                  <!-- Add Kiosk button -->
+                  <button class="add_kiosk_button" (click)="createKiosk(stand.stand_id);" mat-raised-button>
+                    Add kiosk
+                  </button>
+                  <!-- Add Kiosk fild -->
+                  <mat-form-field>
+                    <input class="" matInput type="text" placeholder="kiosk title" name="kioskTitle" maxlength="20" [(ngModel)]="kioskTitle">
+                  </mat-form-field>
+                </div>
+                <!-- Kosk list -->
+                <div style="padding:0;" *ngFor="let kiosk of kiosks; let kiosk_index = index">
+                  <div class="list" *ngIf="kiosk.stand_id == stand.stand_id">
+                    <!-- Kosk name -->
+                    <div class="list-element"> {{kiosk.kiosk_name}} </div>
+                    <!-- Kosk review button -->
+                    <button mat-button (click)="openKiosk(kiosk.kiosk_id, kiosk.kiosk_name)" class="list-element">
+                      <mat-icon> edit </mat-icon>
+                    </button>
+                    <!-- Delete kosk button -->
+                    <button mat-button (click)="deleteKiosk(kiosk.kiosk_id, kiosk_index);" class="list-element">
+                      <mat-icon> delete </mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--Delete stand button-->
+              <button mat-raised-button (click)="deleteStand(stand.stand_id, stand_index)" style="align-self: flex-start;">
+                <mat-icon> delete </mat-icon>
+              </button>
+            </div>
+          </mat-tab>
+        </div>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+</div>

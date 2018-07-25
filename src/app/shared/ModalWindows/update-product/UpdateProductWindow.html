@@ -1,0 +1,35 @@
+
+<div style="  display: flex;
+flex-direction: column;
+justify-content: center;">
+
+<!-- product title -->
+  <div mat-dialog-content>
+    <h1 style="text-align:center;">{{data.product_name}}</h1>
+  </div>
+<!-- update product -->
+  <div>
+    <div mat-dialog-content class="flex-container">
+        <mat-form-field>
+            <mat-select placeholder="Product category" [(value)]="category_id">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let category of categories" [value]="category.category_id">{{category.category_name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Product title" name="product_name" maxlength="20" [(ngModel)]="product_name">
+        </mat-form-field>
+
+        <mat-form-field style="width:80px" >
+                <input class="" matInput type="number" placeholder="Price" name="product_price" maxlength="20" [(ngModel)]="product_price">
+        </mat-form-field>
+
+    </div>
+  </div>
+
+  <div mat-dialog-actions>
+    <button style="margin:auto" mat-button (click)="updateProduct()">Update</button>
+    <button style="margin:auto" mat-button (click)="onNoClick()" >Cancel</button>
+  </div>
+</div>

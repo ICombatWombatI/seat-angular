@@ -1,0 +1,77 @@
+.work-spac {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+
+}
+
+.element:last-child {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 70%;
+    min-width: 300px;
+}
+
+.stadium {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto
+}
+
+.flex-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;margin: auto;
+}
+
+.flex-form-loading {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 70%;
+    margin-top: 120px;
+  
+}
+
+.flex-form-element {
+
+    align-self: center;
+}
+
+.header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   width: 70%;
+}
+
+.full-wigth {
+    width: 100%;
+}
+
+hr {
+    margin: 5px;
+    width: 82%;
+}
+
+.news-title {
+    position: absolute;
+    bottom:0;
+    background-color: rgba(0, 0, 0,0.5)!important;
+    color:white;
+    width:100%;
+    height: 80px;
+}
+
+.news-card {
+    width: 350px;
+    height: 200px; 
+    margin:0;
+    padding:0; 
+}

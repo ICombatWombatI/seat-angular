@@ -1,0 +1,22 @@
+<mat-progress-bar color="warn" mode="indeterminate" *ngIf="loading"> </mat-progress-bar>
+
+<form  (ngSubmit)="onSubmit();" #LoginForm="ngForm">
+  <div class="flex-container">
+
+      <div class="input element">
+        <mat-form-field >
+          <input matInput placeholder="Email: " id="Email" name ="Email" maxlength="20" [(ngModel)]="Email" required>
+        </mat-form-field>
+
+        <mat-form-field >
+            <input type="Password" matInput placeholder="Password:" id="password" name ="password" maxlength="20" [(ngModel)]="password" required>
+        </mat-form-field>
+      </div>
+      <div class="element ">
+        <button class="confirm" type="submit" mat-raised-button [disabled]="LoginForm.form.invalid">
+        <h3 style="margin-top:5px;margin-bottom:5px">LOG IN</h3> 
+        </button>
+      </div>
+
+  </div>
+</form>

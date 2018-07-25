@@ -1,0 +1,31 @@
+<div style="  display: flex;
+flex-direction: column;
+justify-content: center;">
+
+  <div>
+    <div mat-dialog-content class="flex-container">
+      <div class="img-form">
+        <input type="file" (change)="uploadImg($event)" #titleImg style="display:none;">
+        <button class="img-form-element data-canter" style="background-color: #ff6f00;" (click)="titleImg.click()" *ngIf="!img_selected" mat-raised-button>Select</button>
+
+        <mat-card class="img-mat" *ngIf="img_selected">
+          <div class="data-canter">{{title_img_name}}</div> 
+          <button class="data-canter" mat-button (click)="deleteImg()" style="background-color:#ef5350;">
+            Delete
+          </button>
+        </mat-card>
+      </div>
+    </div>
+    <hr>
+    <div class="title-form">
+      <mat-form-field>
+        <input matInput placeholder="Studium name" name="stadium_name" maxlength="20" [(ngModel)]="stadium_name" required>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div mat-dialog-actions> <!--(click)="createStadium()"-->
+    <button style="margin:auto"  [mat-dialog-close]="stadium_data" (click)="createStadium()" mat-button >Create</button>
+    <button style="margin:auto" mat-button (click)="onNoClick()">Cancel</button>
+  </div>
+</div>
